@@ -8,8 +8,7 @@ direnv allow
 
 # Deploy phi-3-vision model on VLLM
 
-vllm serve \
-    --model microsoft/Phi-3-vision-128k-instruct \
+vllm serve microsoft/Phi-3-vision-128k-instruct \
     --dtype bfloat16 \
     --max-model-len 4096 \
     --disable-sliding-window \
@@ -29,5 +28,5 @@ curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc \
 
 ngrok config add-authtoken $NGROK_TOKEN
 
-ngrok http --url=lasting-swan-large.ngrok-free.app 80
+ngrok http --url=lasting-swan-large.ngrok-free.app 8000
 ```
