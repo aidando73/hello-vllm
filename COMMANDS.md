@@ -18,7 +18,6 @@ vllm serve microsoft/Phi-3-vision-128k-instruct \
     --trust-remote-code \
     --gpu-memory-utilization 0.95
 
-
 curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc \
 	| tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null \
 	&& echo "deb https://ngrok-agent.s3.amazonaws.com buster main" \
@@ -28,5 +27,9 @@ curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc \
 
 ngrok config add-authtoken $NGROK_TOKEN
 
+tmux
 ngrok http --url=lasting-swan-large.ngrok-free.app 8000
+
+
+python phi3_vision_client.py
 ```
